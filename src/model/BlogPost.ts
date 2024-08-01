@@ -7,21 +7,21 @@ export interface IBlogPost {
     description: string;
     markdown: string;
     date: Date;
-    createdAt: string;
-    updatedAt: string;
+    createdAt?: string;
+    updatedAt?: string;
 }
 
 const blogPostSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true,
-        index: true
+        index: { unique: true }
     },
     slug: {
         type: String,
         required: true,
         unique: true,
-        index: true
+        index: { unique: true }
     },
     author: {
         type: String,

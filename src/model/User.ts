@@ -6,8 +6,8 @@ export interface IUser {
     email: string;
     password: string;
     avatar: string;
-    createdAt: string;
-    updatedAt: string;
+    createdAt?: string;
+    updatedAt?: string;
 }
 
 const userSchema = new mongoose.Schema({
@@ -20,13 +20,13 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true,
-        index: true
+        index: { unique: true }
     },
     email: {
         type: String,
         required: true,
         unique: true,
-        index: true
+        index: { unique: true }
     },
     password: {
         type: String,
