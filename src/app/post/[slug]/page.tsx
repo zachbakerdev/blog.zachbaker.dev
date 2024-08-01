@@ -1,3 +1,4 @@
+import MarkdownRenderer from "@/components/MarkdownRenderer";
 import PageWrapper from "@/components/PageWrapper";
 import BlogPost from "@/model/BlogPost";
 import User from "@/model/User";
@@ -19,8 +20,8 @@ const Page: FC<PageParams> = async ({ params }) => {
         <Box sx={{px: 4}}>
             <Typography variant="h6">By {user.display_name}</Typography>
             <Typography variant="body1">{post.date.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric"})}</Typography>
+            <MarkdownRenderer>{post.markdown}</MarkdownRenderer>
         </Box>
-        
     </PageWrapper>
 }
 
