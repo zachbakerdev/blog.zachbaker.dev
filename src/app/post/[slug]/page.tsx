@@ -1,5 +1,6 @@
 import MarkdownRenderer from "@/components/MarkdownRenderer";
 import PageWrapper from "@/components/PageWrapper";
+import initializeMongoose from "@/lib/initializeMongoose";
 import BlogPost from "@/model/BlogPost";
 import User from "@/model/User";
 import { Box, Typography } from "@mui/material";
@@ -12,6 +13,8 @@ type PageParams = {
 }
 
 const Page: FC<PageParams> = async ({ params }) => {
+    await initializeMongoose();
+
     const post = await BlogPost.findOne({ slug: params.slug }).exec();
     const user = await User.findOne({ email: post.author }).exec();
 
