@@ -12,16 +12,25 @@ export interface IUser {
 
 const userSchema = new mongoose.Schema({
     display_name: {
-        type: String
+        type: String,
+        required: true,
+        index: true
     },
     username: {
-        type: String
+        type: String,
+        required: true,
+        unique: true,
+        index: true
     },
     email: {
-        type: String
+        type: String,
+        required: true,
+        unique: true,
+        index: true
     },
     password: {
-        type: String
+        type: String,
+        required: true
     },
     avatar: {
         type: String
