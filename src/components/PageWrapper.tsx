@@ -6,7 +6,7 @@ import NavBar from "@/components/NavBar";
 const PageWrapper: FC<PropsWithChildren> = ({children}) => {
     return <Box>
         <NavBar/>
-        <Container sx={{bgcolor: 'tomato', height: '100vh'}}>
+        <Container>
             {children}
         </Container>
     </Box>;

@@ -1,5 +1,5 @@
 import {FC} from "react";
-import {AppBar, CssBaseline, SxProps, Theme, Toolbar, Typography, useTheme} from "@mui/material";
+import {AppBar, CssBaseline, Toolbar, Typography} from "@mui/material";
 import {Box} from "@mui/system";
 import Link from "@/components/Link";
 
@@ -10,7 +10,9 @@ const NavBar: FC = () => {
         <CssBaseline/>
         <Toolbar>
             <Typography variant="h4">
-                Navbar
+                <Link href="/" sx={{textDecoration: "inherit", color: "inherit"}}>
+                    blog.zachbaker.dev
+                </Link>
             </Typography>
             <Box sx={{ml: "auto"}}>
                 <Link href="/" sx={linkStyle}>
