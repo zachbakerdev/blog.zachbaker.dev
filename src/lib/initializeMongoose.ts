@@ -15,9 +15,16 @@ const initializeMongoose = async (): Promise<void> => {
         mongoosePromise = mongoose.connect(mongoUri);
         status = "connecting";
         mongoosePromise.then(() => {
-            User.ensureIndexes();
-            BlogPost.ensureIndexes();
+            User.ensureIndexes().catch(err => {
+                console.error(err);
+                process.exit(1);
+            });
+            BlogPost.ensureIndexes().catch(err => {
+                console.error(err);
+                process.exit(1);
+            });
         }).catch(err => {
+            console.error(err);
             process.exit(1);
         });
     }
