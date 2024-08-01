@@ -1,17 +1,18 @@
 import {FC} from "react";
-import {AppBar, CssBaseline, Toolbar, Typography} from "@mui/material";
+import {AppBar, CssBaseline, Toolbar, Typography, colors} from "@mui/material";
 import {Box} from "@mui/system";
 import Link from "@/components/Link";
+import strings from "@/strings";
 
 const NavBar: FC = () => {
     const linkStyle = {ml: 3, color: 'white', textDecoration: 'none'};
 
-    return <AppBar sx={{bgcolor: 'black'}}>
+    return <AppBar sx={{bgcolor: 'black', color: colors.grey[200]}} position="sticky">
         <CssBaseline/>
         <Toolbar>
             <Typography variant="h4">
                 <Link href="/" sx={{textDecoration: "inherit", color: "inherit"}}>
-                    blog.zachbaker.dev
+                    {strings.navbar}
                 </Link>
             </Typography>
             <Box sx={{ml: "auto"}}>

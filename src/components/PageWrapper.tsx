@@ -6,7 +6,7 @@ import NavBar from "@/components/NavBar";
 const PageWrapper: FC<PropsWithChildren> = ({children}) => {
     return <Box>
         <NavBar/>
-        <Container>
+        <Container sx={{py: 3}}>
             {children}
         </Container>
     </Box>;

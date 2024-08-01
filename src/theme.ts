@@ -16,6 +16,9 @@ const theme = createTheme({
     palette: {
         background: {
             default: colors.grey[900]
+        },
+        text: {
+            primary: colors.grey[200]
         }
     }
 });
