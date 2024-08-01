@@ -23,6 +23,8 @@ const Page: FC<PageParams> = async ({ params }) => {
         <Box sx={{px: 4}}>
             <Typography variant="h6">By {user.display_name}</Typography>
             <Typography variant="body1">{post.date.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric"})}</Typography>
+        </Box>
+        <Box sx={{px: 4, py: 3}}>
             <MarkdownRenderer>{post.markdown}</MarkdownRenderer>
         </Box>
     </PageWrapper>
