@@ -47,4 +47,5 @@ const blogPostSchema = new mongoose.Schema({
 
 const BlogPost = mongoose.models.BlogPost || mongoose.model("BlogPost", blogPostSchema);
 
+export type BlogPostDocument = mongoose.Document<mongoose.Types.ObjectId, {}, IBlogPost> & IBlogPost;
 export default BlogPost;

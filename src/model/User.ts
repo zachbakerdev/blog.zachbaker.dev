@@ -39,6 +39,7 @@ const userSchema = new mongoose.Schema({
     timestamps: true
 });
 
-const User = mongoose.models.User || mongoose.model("User", userSchema);
+const User: mongoose.Model<IUser> = mongoose.models.User || mongoose.model<IUser>("User", userSchema);
 
+export type UserDocument = mongoose.Document<mongoose.Types.ObjectId, {}, IUser> & IUser;
 export default User;
