@@ -2,6 +2,9 @@
 # Simple workflow for implementing SonarQube
 name: SonarQube Validation Pipeline
 on:
+  push:
+    branches:
+      - "main"
   pull_request:
 
 jobs:
