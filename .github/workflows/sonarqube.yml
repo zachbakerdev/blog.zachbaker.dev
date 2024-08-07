@@ -1,0 +1,30 @@
+---
+# Simple workflow for implementing SonarQube
+name: SonarQube Validation Pipeline
+on:
+  pull_request:
+
+jobs:
+  sonarqube-validation:
+    runs-on: ubuntu-latest
+    steps:
+      # Shallow clone (only get current source code)
+      - name: Checkout Code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      # Run SonarQube scanner
+      - name: SonarQube Scan
+        uses: sonarsource/sonarqube-scan-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST }}
+        with:
+          args: >
+            -Dsonar.projectKey=${{ vars.SONAR_PROJECT_KEY }}
+      # Fail if SonarQube scan fails.
+      - name: Check Quality Gate
+        uses: sonarsource/sonarqube-quality-gate-action@master
+        timeout-minutes: 5
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
